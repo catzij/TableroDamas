@@ -9,7 +9,7 @@ public class damas {
         int[][] tablero = new int[8][8];                 
         int[][] tableronull = empezarTablero(tablero);
         mostrarTablero(tableronull);        
-        //seleccionDeFicha1();
+        seleccionDeFicha1();
         tablaActualizada(tableronull);
     }
 
@@ -126,9 +126,14 @@ public class damas {
             System.out.println("\t(i)fila: "+(posicioni+1));
             System.out.println("\t(j)columna:"+(j+1));
             System.out.println("ingrese seleccion:");
-            seleccionDemovivimiento = read.nextInt();
-            nuevaPieza.datosFicha1Verde[posicioni][1]=(posicioni+1);
-            nuevaPieza.datosFicha1Verde[posicioni][2]=(j+1);
+            seleccionDemovivimiento = read.nextInt();            
+            if (seleccionDemovivimiento==1) {
+                for (int i = ficha; i < (ficha+1); i++) {
+                    nuevaPieza.datosFicha1Verde[i][1]=(posicioni+1);
+                    nuevaPieza.datosFicha1Verde[i][2]=(j+1);
+                }                
+                nuevaPieza.mostrarDatosfichaVerde1(ficha);
+            }
         }        
     }
 
