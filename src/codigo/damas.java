@@ -106,10 +106,10 @@ public class damas {
         opcionesDeMovimeinto(numeroFicha);                
     }
 
-    public void opcionesDeMovimeinto(int ficha){
+    public int opcionesDeMovimeinto(int ficha){
         int posicioni=0;
         int j=0;
-        int seleccionDemovivimiento;
+        int seleccionDemovivimiento=0;
 
         for (int i = ficha; i < (ficha+1); i++) {
             posicioni=nuevaPieza.datosFicha1Verde[i][1];
@@ -134,11 +134,13 @@ public class damas {
                 }                
                 nuevaPieza.mostrarDatosfichaVerde1(ficha);
             }
-        }        
+        }     
+        return seleccionDemovivimiento;   
     }
 
-    public void tablaActualizada(int[][] tablero){
+    public void tablaActualizada(int[][] tablero){        
         tituloMostrarTablero();              
+        nuevaPieza.ordenarFichasVerdes();
         int contadorficha1=0;
         int contadorficha2=0;
         //filas
@@ -181,7 +183,7 @@ public class damas {
                                                     
                         }else{
                             nuevaPieza.cuadroDeMeza1();
-                        }                       
+                        }
                     }    
                 }
                 System.out.println(nuevaPieza.colorBlanco+" [ "+i+" ] ");

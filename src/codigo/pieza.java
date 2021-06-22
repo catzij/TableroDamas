@@ -132,4 +132,39 @@ public class pieza {
             //System.out.println("numero de ficha: "+datosFicha1Verde[i][(j+3)]);
         }        
     }
+    public void ordenarFichasVerdes(){
+        
+        for (int i = 0; i < (datosFicha1Verde.length-1); i++) {
+            for (int j = 0; j < (11); j++) {
+                
+                int auxnumero;
+                int auxposicioni;
+                int auxposicionj;
+
+                //pieza1                
+                int numeroFicha=datosFicha1Verde[i][0];
+                int posicioni=datosFicha1Verde[i][1];
+                int posicionj=datosFicha1Verde[i][2];
+                //pieza2
+                int numeroficha2=datosFicha1Verde[(i+1)][0];
+                int posicioni2=datosFicha1Verde[(i+1)][1];
+                int posicionj2=datosFicha1Verde[(i+1)][2];
+                
+                if (posicioni>posicioni2) {
+                    //guardamos pieza2 en aux
+                    auxnumero = numeroficha2;
+                    auxposicioni = posicioni2;
+                    auxposicionj = posicionj2;
+                    //cambio1 pieza1 a donde estaba pieza2
+                    datosFicha1Verde[(i+1)][j] =  numeroFicha;
+                    datosFicha1Verde[(i+1)][(j+1)] = posicioni;
+                    datosFicha1Verde[(i+1)][(j+2)] = posicionj;
+                    //cambio2 pieza2 a donde estaba pieza1
+                    datosFicha1Verde[i][j] = auxnumero;
+                    datosFicha1Verde[i][(j+1)] = auxposicioni;
+                    datosFicha1Verde[i][(j+2)] = auxposicionj;
+                }                                
+            }
+        }
+    }
 }
